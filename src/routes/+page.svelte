@@ -1,4 +1,7 @@
 <script lang="ts">
+    import ProjectSummary from "#lib/components/ProjectSummary.svelte";
+    import TaskWorkspace from "#lib/components/TaskWorkspace.svelte";
+
     const appName = "SprintBoard";
     const tagline = "Plan projects, organize tasks, and keep work moving.";
 </script>
@@ -38,6 +41,8 @@
             <p>Protect application data with authenticated user accounts.</p>
         </article>
     </section>
+
+    <ProjectSummary />
 </main>
 
 <style>
@@ -88,6 +93,7 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 1rem;
+        margin-bottom: 2rem;
     }
 
     article {
