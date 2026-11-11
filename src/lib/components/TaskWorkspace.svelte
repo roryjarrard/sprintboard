@@ -1,6 +1,7 @@
 <script lang="ts">
   import SearchField from "#lib/components/SearchField.svelte";
   import TaskList from "./TaskList.svelte";
+  import Panel from "./Panel.svelte";
   import type { Task } from "#lib/types/task.ts";
 
   let tasks = $state<Task[]>([
@@ -61,9 +62,11 @@
   });
 </script>
 
-<SearchField bind:value={search} />
+<Panel title="Project Tasks">
+  <SearchField bind:value={search} />
 
-<TaskList tasks={visibleTasks} onToggle={toggleTask} />
+  <TaskList tasks={visibleTasks} onToggle={toggleTask} />
+</Panel>
 
 <div class="space-1">
   <p>
