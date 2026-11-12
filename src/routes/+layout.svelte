@@ -1,12 +1,30 @@
 <script lang="ts">
-	import favicon from '#lib/assets/favicon.svg';
-	import type { LayoutProps } from './$types';
+  import type { LayoutProps } from "./$types";
+  import AppNavigation from "#lib/components/AppNavigation.svelte";
 
-	let { children }: LayoutProps = $props();
+  let { children }: LayoutProps = $props();
 </script>
 
-<svelte:head>
-	<link rel="icon" href={favicon} />
-</svelte:head>
+<header>
+  <a href="/" class="brand">SprintBoard</a>
+
+  <AppNavigation />
+</header>
 
 {@render children()}
+
+<style>
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: white;
+    border-bottom: 1px solid #d8deea;
+  }
+
+  .brand {
+    font-weight: 800;
+  }
+</style>
