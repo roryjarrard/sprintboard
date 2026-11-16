@@ -1,0 +1,13 @@
+import { error } from "@sveltejs/kit";
+import { projects } from "#lib/data/projects.ts";
+import type { PageLoad } from "./$types";
+
+export const load: PageLoad = ({ params }) => {
+  const project = projects.find((item) => item.id === params.projectId);
+
+  if (!project) {
+    error(404, "Project not found");
+  }
+
+  return { project };
+};
