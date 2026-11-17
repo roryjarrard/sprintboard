@@ -22,6 +22,12 @@
       ? "page"
       : undefined}>Projects</a
   >
+  <a
+    href="/my-tasks"
+    aria-current={page.url.pathname.startsWith("/my-tasks")
+      ? "page"
+      : undefined}>My Tasks</a
+  >
 </nav>
 
 <style>
