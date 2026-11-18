@@ -33,16 +33,24 @@
 <style>
   nav {
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     gap: 1rem;
   }
 
   a {
+    padding: 0.35rem 0.5rem;
     color: inherit;
     text-decoration: none;
+    border-radius: var(--radius-sm);
+  }
+
+  a:hover {
+    background: var(--color-bg);
   }
 
   a[aria-current="page"] {
     font-weight: 800;
-    text-decoration: underline;
+    background: var(--color-bg);
   }
 </style>
