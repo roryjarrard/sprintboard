@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from "$app/state";
   import { projects } from "#lib/data/projects.ts";
+  import ProjectCard from "#lib/components/ProjectCard.svelte";
 
   let status = $derived(page.url.searchParams.get("status") ?? "all");
 
@@ -27,16 +28,17 @@
 {#if visibleProjects.length === 0}
   <p>No projects match this filter.</p>
 {:else}
-  <div class="project-list">
+  <div class="card-grid">
     {#each visibleProjects as project (project.id)}
-      <article>
-        <h2>
-          <a href="/projects/{project.id}">{project.name}</a>
-        </h2>
-
-        <p>{project.description}</p>
-        <p>Status: {project.status}</p>
-      </article>
+      <ProjectCard {project} />
     {/each}
   </div>
 {/if}
+
+<style>
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-3);
+  }
+</style>
